@@ -1,0 +1,39 @@
+<div class="headPage"><h1>Eat that Burger !</h1></div>
+<div id="imageRow" class="row"><img src="/assets/img/burger.png" alt="Burger images"></div>
+<div class="row" id="foods">
+  <div class="layouts" id="fresh-block">
+    <h2>Fresh Burgers</h2>
+    <ul>
+      {{#each burgers}}
+        {{#unless devoured}}
+          <h3>{{id}} | {{burger_name}}</h3>
+          <span><button class="devour" data-id={{id}}>Devour It!</button></span>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="layouts" id="devoured-block">
+    <h2>Devoured Burgers!</h2>
+    <ul>
+      {{#each burgers}}
+        {{#if devoured}}
+        <h3>{{id}} | {{burger_name}} <span><button class="render" data-id={{id}}>Render !</button></span></h3>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div id="add">
+  <h2>Add New Burgers</h2>
+  <form class="create-form" action="/api/burgers" method="POST">
+    <div class="form-group">
+      <label for="burger">Burger Name:</label>
+      <input type="text" id="burger" name="burger_name">
+      <button id="submit" type="submit">Add Burger</button>
+    </div> 
+  </form>
+</div>
+<br> <br> <br> <br>
+<div class="row" id="link-me"><a href="#">By: Taylor Yao</a> <p>yaotaylor25@gmail.com</p></div>
